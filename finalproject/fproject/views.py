@@ -16,6 +16,5 @@ class PageRankView(View):
 
 class DegreeCentralityView(View):
     def get(self, request, *args, **kwargs):
-        degreecentrality = degreecentrality()
-        return HttpResponse(degreecentrality)
-
+        degcentrality = degreecentrality()
+        return HttpResponse(degcentrality)
