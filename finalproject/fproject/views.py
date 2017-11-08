@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
 from django.views.generic.edit import FormView
-
+import osmnx as ox
 from algorithms import pagerankalgo
 from algorithms import degreecentrality
 
@@ -19,6 +19,9 @@ class EnterAreaView(FormView):
         form = self.form_class(request.POST)
         if(form.is_valid()):
             area = request.POST['area']
+
+            G = ox.graph_from_place(T)
+            nx.write_graphml(G,#path here)
             # run_script here
             # create file
             # save the file
