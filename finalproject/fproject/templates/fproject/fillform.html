@@ -9,12 +9,11 @@
 <body>
 <div class="row">
 	<div class="col-md-12">
-		<a href="{% url 'pagerank' %}" class="btn btn-primary">
-			Run Pagerank
-		</a>
-		<a href="{% url 'degreecentrality' %}" class="btn btn-primary">
-			Run Degree Centrality
-		</a>
+		<form method="POST" action="">{% csrf_token %}
+			{{ form.as_p }}
+			<button class="btn btn-primary" type="submit" >Submit</button>
+		</form>
+
 	</div>
 </div>
 </body>
