@@ -9,6 +9,7 @@ import osmnx as ox
 import networkx as nx
 from algorithms import pagerankalgo
 from algorithms import degreecentrality
+from algorithms import isochrones
 
 from fproject.forms import Area
 
@@ -39,3 +40,9 @@ class DegreeCentralityView(View):
     def get(self, request, *args, **kwargs):
         degcentrality = degreecentrality()
         return HttpResponse(degcentrality)
+
+
+class IsochronesView(View):
+    def get(self, request, *args, **kwargs):
+        isochrones = isochrones()
+        return HttpResponse(isochrones)

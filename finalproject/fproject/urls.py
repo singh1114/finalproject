@@ -5,6 +5,7 @@ from fproject.views import DegreeCentralityView
 from fproject.views import EnterAreaView
 urlpatterns = [
     url(r'^pagerank/?', PageRankView.as_view(), name='pagerank'),
+    url(r'^isochrones/?', IsochronesView.as_view(), name='isochrones'),
     url(r'^fillform/?', EnterAreaView.as_view(), name='enterarea'),
     url(r'^degreecentrality/?', DegreeCentralityView.as_view(), name='degreecentrality'),
     url(r'^index/', TemplateView.as_view(template_name="fproject/index.html")),

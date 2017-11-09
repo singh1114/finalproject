@@ -52,3 +52,34 @@ def pagerankalgo():
     plt.title('Analysis')
     plt.show()
     print("--- %s seconds ---" % (time.time() - start_time))
+
+
+def isochrone():
+    import networkx as nx
+    import time
+    import matplotlib.pyplot as plt
+    G = nx.read_graphml("/home/sharan/Desktop/punjab1.graphml")
+    g = nx.Graph(G)
+    id =[]
+    value = []
+
+
+    start_time = time.time()
+    result = nx.pagerank(g)
+    result = sorted(result.items(), key=lambda x: x[1],reverse=True)
+    x = []
+    y = []
+
+    top  = []
+    top  = result[:10]
+    for i in top:
+        x.append(i[0])   #creating vertices for plotting
+        y.append(i[1])
+
+    y_pos = range(0,len(top))
+    plt.bar(y_pos,y, align='center', alpha=0.5)
+    plt.xticks(y_pos, x)
+    plt.ylabel('Isochrone')
+    plt.title('Analysis')
+    plt.show()
+    print("--- %s seconds ---" % (time.time() - start_time))
